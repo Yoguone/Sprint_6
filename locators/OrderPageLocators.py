@@ -1,25 +1,23 @@
 from selenium.webdriver.common.by import By
+from random import randint
 
 class OrderPageLocators:
-    renter_form_header = By.XPATH, '/html/body/div/div/div[2]/div[1]'
-    name_input = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[1]/input'
-    surname_input = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[2]/input'
-    address_input = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[3]/input'
-    phone_number_input = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[5]/input'
-    further_button = By.XPATH, '/html/body/div/div/div[2]/div[3]/button'
-    calendar_input = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[1]/div[1]/div/input'
+    renter_form_header = By.XPATH, '//div/div[contains(text(), "Для кого самокат")]'
+    name_input = By.XPATH, '//div/input[@placeholder = "* Имя"]'
+    surname_input = By.XPATH, '//div/input[@placeholder = "* Фамилия"]'
+    address_input = By.XPATH, '//div/input[@placeholder = "* Адрес: куда привезти заказ"]'
+    phone_number_input = By.XPATH, '//div/input[@placeholder = "* Телефон: на него позвонит курьер"]'
+    further_button = By.XPATH, '//div/button[contains(text(), "Далее")]'
+    calendar_input = By.XPATH, '//div/input[@placeholder = "* Когда привезти самокат"]'
     rent_time_arrow = By.XPATH, "//div/span[@class='Dropdown-arrow']"
-    rent_time_dropdown_menu_1day = By.XPATH, "/html/body/div/div/div[2]/div[2]/div[2]/div[2]/div[1]"
+    rent_time_dropdown_menu_1day = By.XPATH, f"(//div[@class = 'Dropdown-option'])[{randint(1,5)}]"
     black_scooter_checkbox = By.XPATH, '//*[@id="black"]'
     grey_scooter_checkbox = By.XPATH, '//*[@id="grey"]'
-    comment_input = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[4]/input'
-    datepicker = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[1]/div[1]/div/input'
-    order_page_order_button = By.XPATH, '/html/body/div/div/div[2]/div[3]/button[2]'
-    confirm_window_header = By.XPATH, '/html/body/div/div/div[2]/div[5]/div[1]'
-    confirm_button = By.XPATH, '/html/body/div/div/div[2]/div[5]/div[2]/button[2]'
-    order_done_modal = By.XPATH, '/html/body/div/div/div[2]/div[5]'
-    scooter_logo = By.XPATH, '/html/body/div/div/div[1]/div[1]/a[2]/img'
-    pick_metro_station = By.XPATH, '/html/body/div/div/div[2]/div[2]/div[4]/div/div/input'
-    metro_station_dropdown_menu = By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[4]/div/div[2]'
-    metro_input = By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[4]/div/div/input'
+    comment_input = By.XPATH, '//div/input[@placeholder = "Комментарий для курьера"]'
+    order_page_order_button = By.XPATH, '//div[@class = "Order_Buttons__1xGrp"]/button[(text() = "Заказать")]'
+    confirm_window_header = By.XPATH, '//div/div[contains(text(), "Хотите оформить заказ?")]'
+    confirm_button = By.XPATH, '//div[@class = "Order_Buttons__1xGrp"]//button[(text() = "Да")]'
+    order_done_modal = By.XPATH, '//div[contains(text(), "Заказ оформлен")]'
+    scooter_logo = By.XPATH, '//div/a/img[@alt = "Scooter"]'
+    metro_input = By.XPATH, '//div/input[@placeholder = "* Станция метро"]'
     metro_station = By.XPATH, "//div[@class='select-search__select']//*[contains(text(), 'Черкизовская')]"

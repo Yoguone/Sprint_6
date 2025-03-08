@@ -1,5 +1,4 @@
 import allure
-
 from locators.OrderPageLocators import OrderPageLocators
 from pages.base_page import BasePage
 from data import Date
@@ -24,7 +23,7 @@ class OrderPage(BasePage):
 
     @allure.step('Заполнить информацию о деталях аренды')
     def fill_rent_details(self, comment):
-        self.input_in_the_field(self.locators.datepicker, Date.first_rent_date)
+        self.input_in_the_field(self.locators.calendar_input, Date.first_rent_date)
         self.element_click(self.locators.rent_time_arrow)
         self.wait_for_visible(self.locators.rent_time_dropdown_menu_1day)
         self.element_click(self.locators.rent_time_dropdown_menu_1day)
